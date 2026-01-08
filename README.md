@@ -76,3 +76,39 @@ public class BaseTest {
 	
 	
 }
+
+package pages;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import sampleProject.BaseTest;
+
+public class AutomationTest extends BaseTest{
+	
+	@BeforeTest
+	public void run_check(){
+		System.out.println("login page is yet to open");
+		}
+	
+	@Test
+  public void Guvi_login() {//negative_testing
+		String name = "testuser@gmail.com";
+		driver.get("https://www.guvi.in/sign-in");
+		WebElement mailid = driver.findElement(By.id("email"));
+		mailid.sendKeys(name);
+		WebElement password = driver.findElement(By.id("password"));
+		password.sendKeys("Test@1234");
+		WebElement Login = driver.findElement(By.linkText("Login"));
+		Login.click();
+		WebDriverWait  wait = new WebDriverWait(driver, Duration.ofSeconds(02));
+		
+  }
+}
+
